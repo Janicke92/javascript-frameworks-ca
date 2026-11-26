@@ -18,6 +18,11 @@ function Navbar() {
                         Contact
                     </NavLink>
                 </li>
+                <li>
+                    <NavLink to="/cart" className={getNavLinkClass}>
+                        Cart
+                    </NavLink>
+                </li>
             </ul>
         </nav>
     );
