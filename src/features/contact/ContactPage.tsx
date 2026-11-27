@@ -24,18 +24,20 @@ function ContactPage() {
     };
 
     return (
-        <section>
-            <h1>Contact Us</h1>
+        <section className="mx-auto w-full max-w-2xl">
+            <h1 className="mb-6 text-3xl">Contact Us</h1>
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <label htmlFor="fullName">Full Name</label>
+                    <label htmlFor="fullName" className="form-label">
+                        Full Name
+                    </label>
 
                     <input
                         id="fullName"
                         type="text"
                         {...register("fullName")}
-                        className="border border-gray-400 rounded p-2"
+                        className="form-input"
                         aria-invalid={!!errors.fullName}
                         aria-describedby={
                             errors.fullName ? "fullNameError" : undefined
@@ -53,13 +55,15 @@ function ContactPage() {
                     )}
                 </div>
                 <div>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email" className="form-label">
+                        Email
+                    </label>
 
                     <input
                         id="email"
                         type="email"
                         {...register("email")}
-                        className="border border-gray-400 rounded p-2"
+                        className="form-input"
                         aria-invalid={!!errors.email}
                         aria-describedby={
                             errors.email ? "emailError" : undefined
@@ -83,7 +87,7 @@ function ContactPage() {
                         id="subject"
                         type="text"
                         {...register("subject")}
-                        className="border border-gray-400 rounded p-2"
+                        className="form-input"
                         aria-invalid={!!errors.subject}
                         aria-describedby={
                             errors.subject ? "subjectError" : undefined
@@ -101,12 +105,14 @@ function ContactPage() {
                     )}
                 </div>
                 <div>
-                    <label htmlFor="message">Message</label>
+                    <label htmlFor="message" className="form-label">
+                        Message
+                    </label>
 
                     <textarea
                         id="message"
                         {...register("message")}
-                        className="border border-gray-400 rounded p-2"
+                        className="form-input min-h-32"
                         aria-invalid={!!errors.message}
                         aria-describedby={
                             errors.message ? "messageError" : undefined
@@ -123,18 +129,20 @@ function ContactPage() {
                         </p>
                     )}
                 </div>
-                <button
-                    type="submit"
-                    className="rounded bg-blue-600 px-4 py-2 text-white"
-                >
-                    Send Message
-                </button>
+                <div className="flex flex-col items-center gap-3">
+                    <button
+                        type="submit"
+                        className="cursor-pointer rounded bg-green-200 px-4 py-3 font-semibold text-slate-900 transition-colors hover:bg-green-600 hover:text-white"
+                    >
+                        Send Message
+                    </button>
+                    {isSubmitted && (
+                        <p role="status" className="text-green-600">
+                            Your message has been submitted successfully!
+                        </p>
+                    )}
+                </div>
             </form>
-            {isSubmitted && (
-                <p role="status" className="text-green-600">
-                    Your message has been submitted successfully!
-                </p>
-            )}
         </section>
     );
 }

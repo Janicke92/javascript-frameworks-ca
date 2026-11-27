@@ -1,7 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @theme {
-    --color-background: #f1f5f9;
-    --color-surface: #ffffff;
+    --color-background: #ffffff;
+    --color-surface: #f1f5f9;
     --color-border: #cbd5e1;
+    --color-accent: #dc2626;
+    --font-sans: "Manrope", sans-serif;
+}
+
+.form-input {
+    @apply mb-6 w-full rounded border border-border bg-background p-3 focus:outline-2 focus:outline-slate-400;
+}
+
+.form-label {
+    @apply mb-2 block font-medium;
+}
+
+.form-error {
+    @apply text-sm text-red-600;
 }

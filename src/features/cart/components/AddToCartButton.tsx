@@ -12,6 +12,7 @@ function AddToCartButton({ product }: AddToCartButtonProps) {
     return (
         <button
             type="button"
+            className="mt-6 cursor-pointer rounded-lg bg-green-200 px-6 py-3 font-semibold text-slate-900 transition-colors hover:bg-green-600 hover:text-white"
             onClick={() =>
                 addItem({
                     productId: product.id,

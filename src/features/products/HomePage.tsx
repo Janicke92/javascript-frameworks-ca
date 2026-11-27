@@ -54,22 +54,23 @@ function HomePage() {
     }
     return (
         <div>
-            <p>Welcome to our online store!</p>
-
-            <div>
-                <label htmlFor="productSearch">Search products: </label>
+            <div className="text-center mb-9 border-b border-border pb-2">
+                <h1 className="text-3xl">Welcome to our online store!</h1>
+            </div>
+            <div className="mb-7">
+                <label htmlFor="productSearch" className="form-label">
+                    Search products:{" "}
+                </label>
                 <input
                     type="text"
                     id="productSearch"
-                    placeholder="Search for products..."
+                    placeholder="Search..."
+                    className="form-input"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
             </div>
-
-            <section className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                <h2>Our Products</h2>
-
+            <section className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {searchedProducts.length > 0 ? (
                     searchedProducts.map((product) => (
                         <ProductCard key={product.id} product={product} />

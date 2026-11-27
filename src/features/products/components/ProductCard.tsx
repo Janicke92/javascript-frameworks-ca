@@ -15,8 +15,8 @@ function ProductCard({ product }: ProductCardProps) {
     const discountPercentage = getDiscountPercentage(product);
 
     return (
-        <article>
-            <div className="relative">
+        <article className="rounded-lg border border-border bg-background p-4">
+            <div className="relative bg-surface">
                 <Link to={`/products/${product.id}`}>
                     <img
                         src={product.image.url}
@@ -32,7 +32,7 @@ function ProductCard({ product }: ProductCardProps) {
                 )}
             </div>
 
-            <h2>
+            <h2 className="text-xl font-semibold mt-2">
                 <Link to={`/products/${product.id}`}>{product.title}</Link>
             </h2>
 
@@ -42,9 +42,13 @@ function ProductCard({ product }: ProductCardProps) {
                 <p>No reviews yet</p>
             )}
 
-            <p>{finalPrice.toFixed(2)} NOK</p>
+            {isOnSale && (
+                <del className="text-red-600">
+                    {product.price.toFixed(2)} NOK
+                </del>
+            )}
 
-            {isOnSale && <del>{product.price.toFixed(2)} NOK</del>}
+            <p>{finalPrice.toFixed(2)} NOK</p>
         </article>
     );
 }
